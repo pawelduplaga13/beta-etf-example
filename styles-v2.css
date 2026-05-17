@@ -1,0 +1,162 @@
+/* ============================================================
+   BETA ETF — Homepage v2 styles
+   Loaded on top of styles.css. Only contains the redesigned
+   "Oferta" (Fundusze) section — FundListV2.
+   ============================================================ */
+
+.flv2 { padding-bottom: 180px; }
+
+.flv2-head { margin-bottom: 48px; }
+
+/* Beginner-friendly explainer card sitting between section-head and the tabs */
+.flv2-explainer {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: 32px;
+  align-items: baseline;
+  margin: 0 0 56px;
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--color-border-subtle);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+.flv2-explainer__lbl {
+  font: 500 12px/16px var(--font-sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+}
+.flv2-explainer p {
+  font: 400 17px/28px var(--font-sans);
+  color: var(--color-text-primary);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Tab row stays consistent with v1 (.tab styles inherited from styles.css) */
+.flv2-tabs { margin-bottom: 48px; }
+
+/* === Groups (by category) === */
+.flv2-groups { display: flex; flex-direction: column; gap: 64px; }
+
+.flv2-group__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border-hairline);
+  margin-bottom: 0;
+}
+.flv2-group__lbl {
+  font: 500 12px/16px var(--font-sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+.flv2-group__count {
+  font: 500 12px/16px var(--font-mono);
+  color: var(--color-text-secondary);
+}
+
+.flv2-list { list-style: none; padding: 0; margin: 0; }
+.flv2-row { border-bottom: 1px solid var(--color-border-hairline); }
+.flv2-row:last-child { border-bottom: 0; }
+
+.flv2-row__link {
+  display: grid;
+  grid-template-columns: 1fr auto 32px;
+  align-items: center;
+  gap: 48px;
+  padding: 32px 0 32px 4px;
+  position: relative;
+  transition: padding 200ms cubic-bezier(0.4, 0, 0.2, 1), background 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flv2-row__link:hover {
+  background: rgba(199, 210, 254, 0.12);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.flv2-row__main { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.flv2-row__primary {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  font: 500 18px/26px var(--font-sans);
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+}
+.flv2-row__name { color: var(--color-text-primary); }
+.flv2-row__ticker { font-family: var(--font-mono); font-size: 14px; color: var(--color-text-primary); }
+.flv2-row__ter { font-family: var(--font-mono); font-size: 14px; color: var(--color-text-secondary); }
+.flv2-row__dot { color: var(--color-text-secondary); opacity: 0.6; }
+.flv2-row__headline {
+  font: 400 15px/22px var(--font-sans);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.flv2-row__perf {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-align: right;
+  white-space: nowrap;
+}
+.flv2-row__ret {
+  font: 300 48px/52px var(--font-sans);
+  letter-spacing: -0.03em;
+}
+.flv2-row__ret.positive { color: var(--color-positive); }
+.flv2-row__ret.negative { color: var(--color-negative); }
+.flv2-row__cap {
+  font: 400 12px/16px var(--font-sans);
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.flv2-row__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flv2-row__link:hover .flv2-row__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--color-text-primary);
+}
+
+.flv2-empty {
+  padding: 80px 32px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font: 500 14px/20px var(--font-sans);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.flv2-closing { margin-top: 64px; }
+
+@media (max-width: 900px) {
+  .flv2-row__link { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .flv2-row__perf { align-items: flex-start; text-align: left; flex-direction: row; align-items: baseline; gap: 12px; }
+  .flv2-row__ret { font-size: 36px; line-height: 40px; }
+  .flv2-row__arrow { display: none; }
+  .flv2-row__name { font-size: 18px; line-height: 24px; }
+  .flv2-row__headline { font-size: 14px; line-height: 22px; }
+  .flv2-explainer { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
+}
